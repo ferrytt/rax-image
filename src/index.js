@@ -1,6 +1,7 @@
 import { PureComponent, createElement, PropTypes } from 'rax';
 import { isWeex } from 'universal-env';
 import View from 'rax-view';
+import './index.css';
 
 class Image extends PureComponent {
   static propTypes = {};
@@ -120,7 +121,7 @@ class Image extends PureComponent {
         return (
           <View style={nativeProps.style}>
             <NativeImage ref={'nativeImg'} {...nativeProps} />
-            <View style={styles.absoluteImage}>
+            <View className="absoluteImage">
               {this.props.children}
             </View>
           </View>
@@ -132,13 +133,5 @@ class Image extends PureComponent {
     return null;
   }
 }
-
-var styles = {
-  absoluteImage: {
-    left: 0,
-    top: 0,
-    position: 'absolute'
-  }
-};
 
 export default Image;
